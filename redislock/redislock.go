@@ -47,9 +47,10 @@ func init() {
 // NewRedisLock returns a RedisLock.
 func New(redis *red.Client, key string, prefix string) *RedisLock {
 	return &RedisLock{
-		redis: redis,
-		key:   prefix + key,
-		id:    randomStr(randomLen),
+		redis:   redis,
+		seconds: 3,
+		key:     prefix + key,
+		id:      randomStr(randomLen),
 	}
 }
 
