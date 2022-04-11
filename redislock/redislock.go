@@ -84,7 +84,7 @@ func (rl *RedisLock) TryLockTimeout(timeOutSeconds float64) (bool, error) {
 	for {
 		if elapseTime := time.Since(startTime).Seconds(); elapseTime < timeOutSeconds {
 			if ok, err := rl.Acquire(); !ok || err != nil {
-				fmt.Printf("key:%d, id:%d Locked, retry %03f\n", rl.key, rl.id, elapseTime)
+				fmt.Printf("key:%s, id:%s Locked, retry %03f\n", rl.key, rl.id, elapseTime)
 			} else {
 				return true, nil
 			}
