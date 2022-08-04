@@ -49,8 +49,8 @@ func RegisterService(listenOn string, c Conf) error {
 	if c.Check == "grpc" {
 		reg.Check = &api.AgentServiceCheck{
 			DeregisterCriticalServiceAfter: "45s",
-			GRPC:                           fmt.Sprintf("%v:%v/%v", host, port, c.Key),
-			Interval:                       "5s",
+			GRPC:                           fmt.Sprintf("%v:%v", host, port),
+			Interval:                       "10s",
 		}
 	} else {
 		reg.Check = &api.AgentServiceCheck{
